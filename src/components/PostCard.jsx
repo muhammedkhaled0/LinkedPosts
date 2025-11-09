@@ -9,7 +9,7 @@ export default function PostCard({post,numberOfComments,getPosts}) {
   const [updatedComments,setUpdatedComments]=useState(comments);
   return (
     <>
-               <div className="lg:w-4/6 md:w-5/6 mx-auto">
+               <div>
   <div className="bg-white w-full rounded-md shadow-md h-auto py-3 px-3 my-5">
     <div className="w-full h-16 flex items-center justify-between ">
       <div className="flex">

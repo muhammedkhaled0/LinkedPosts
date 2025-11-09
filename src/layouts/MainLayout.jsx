@@ -6,10 +6,11 @@ export default function MainLayout() {
   return (
     <>
     <Navbar/>
-    <div className='bg-gray-300 py-4 min-h-screen'>
+    <div className='bg-gray-300 min-h-screen'>
+    <div className=' py-4  lg:w-4/6 md:w-5/6 mx-auto'>
     <Outlet/>
     </div>
-    {/* <Footer/> */}
+    </div>
     </>
   )
 }

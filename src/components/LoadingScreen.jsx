@@ -4,7 +4,7 @@ import React from 'react'
 export default function LoadingScreen() {
   return (
     <>
-        <Card className="lg:w-4/6 md:w-5/6 space-y-5 p-4 mx-auto" radius="lg">
+        <Card className="space-y-5 p-4" radius="lg">
     <div>
         <Skeleton className="flex rounded-full w-12 h-12" />
       </div>

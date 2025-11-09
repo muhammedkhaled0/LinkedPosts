@@ -15,7 +15,10 @@ export default function PostDetails() {
   return (
 
     <div>
-      {post?<div> <PostCard post={post} numberOfComments={post.comments.length} getPosts={getPost}/></div>:<LoadingScreen/>
+      {post?<div> <PostCard post={post} numberOfComments={post.comments.length} getPosts={getPost}/></div>:<div className='flex flex-col gap-y-7'>
+      <LoadingScreen/>
+      <LoadingScreen/>
+          </div>
 }
     </div>
   )

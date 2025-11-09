@@ -15,7 +15,7 @@ export default function SubmitComment({postId,setUpdatedComments}) {
   return (
     <>
     <form onSubmit={(e)=>{CallComment(e)}}>
-<div className="w-full max-w-2xl mx-auto p-4">
+<div className=" mx-auto p-4">
 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm p-4 grid gap-3">
 <label htmlFor="comment" className="sr-only">
  Add
