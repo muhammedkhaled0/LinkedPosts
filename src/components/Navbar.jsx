@@ -32,7 +32,7 @@ export default function Navbar({isDarked,setIsDarked}) {
           </NavLink>
         </NavbarItem>
         <NavbarItem>
-          {!isDarked &&
+          {localStorage.getItem('darkMode')!=='true' &&
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-8" onClick={()=>{
             setIsDarked(!isDarked)
             localStorage.setItem('darkMode',JSON.stringify(!isDarked))
@@ -41,7 +41,7 @@ export default function Navbar({isDarked,setIsDarked}) {
 </svg>
 }
 {
-  isDarked &&<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7" onClick={()=>{
+  localStorage.getItem('darkMode')==='true' &&<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-7" onClick={()=>{
     setIsDarked(!isDarked)
     localStorage.setItem('darkMode',JSON.stringify(!isDarked))
     }}>
