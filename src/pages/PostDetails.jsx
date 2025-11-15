@@ -9,11 +9,9 @@ export default function PostDetails() {
   async function getPost(){
     const post= await GetSinglePost(id);
     setPost(post);
-    console.log(post);
   }
   useEffect(()=>{getPost()},[])
   return (
-
     <div>
       {post?<div> <PostCard post={post} numberOfComments={post.comments.length} getPosts={getPost}/></div>:<div className='flex flex-col gap-y-7'>
       <LoadingScreen/>

@@ -1,19 +1,13 @@
 import axios from "axios";
 
-export async function GetAllPosts(){
-    try{
-    const {data}=await axios.get('https://linked-posts.routemisr.com/posts?limit=50',{
+export  function GetAllPosts(){
+    return  axios.get('https://linked-posts.routemisr.com/posts?limit=50',{
         headers:{
             token:localStorage.getItem('token')   
         },params:{
             sort:'-createdAt'
         }
     })
-    return data;
-}
-catch(error){
-    console.log(error);
-}
 }
 export async function GetSinglePost(id){
     try{
@@ -34,6 +28,20 @@ export async function CreatePostAPI(formData){
     const {data}=await axios.post('https://linked-posts.routemisr.com/posts',
         formData
     ,{
+        headers:{
+            token:localStorage.getItem('token')   
+        }
+    })
+    return data;
+}
+catch(error){
+    console.log(error);
+}
+}
+export async function getUserDataAPI(formData){
+    try{
+    const {data}=await axios.get('https://linked-posts.routemisr.com/users/profile-data',
+    {
         headers:{
             token:localStorage.getItem('token')   
         }

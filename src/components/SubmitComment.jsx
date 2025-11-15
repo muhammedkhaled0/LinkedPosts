@@ -4,13 +4,16 @@ import { CreateComment } from '../services/CommentsServices/CreateComment';
 import { useParams } from 'react-router-dom';
 import LoadingScreen from './LoadingScreen';
 export default function SubmitComment({postId,setUpdatedComments}) {
+  const [isLoading,setIsLoading]=useState(false)
   const [commentContent,setCommentContent]=useState('');
  async function CallComment(e){
+  setIsLoading(true)
      e.preventDefault();
     const res=await CreateComment(commentContent,postId);
     console.log(res);
     setUpdatedComments(res.comments)
      setCommentContent('');
+      setIsLoading(false)
   }
   return (
     <>
@@ -22,8 +25,8 @@ export default function SubmitComment({postId,setUpdatedComments}) {
 </label>
 <Input id="comment" placeholder=" Comment..." className="resize-none" value={commentContent} onChange={(e)=>{setCommentContent(e.target.value)}} />
 <div className="flex items-center justify-end">
-<Button type='submit' className="rounded-xl px-6 py-2 bg-primary text-white" disabled={commentContent.length<3} >
-Comment
+<Button type="submit" className="rounded-xl px-6 py-2 bg-primary text-white" disabled={ isLoading}isLoading={isLoading}>
+  {!isLoading && "Comment"}
 </Button>
 </div>
 </div>

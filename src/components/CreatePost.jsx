@@ -1,26 +1,36 @@
-import { Button, Input } from '@heroui/react'
+import { Button, Input, Spinner } from '@heroui/react'
 import React, { useState } from 'react'
 import { CreatePostAPI } from '../services/PostServices';
 export default function CreatePost({callBack}) {
     const [postBody,setPostBody]=useState('');
     const [postImage,setPostImage]=useState(null);
     const [imageURL,setImageURL]=useState('');
+    const [loading,setLoading]=useState(false);
     function handleImage(e){
         setPostImage(e.target.files[0])
         setImageURL(URL.createObjectURL(e.target.files[0]));
         e.target.value=null;
     }
    async function createPostFunc(e){
+    setLoading(true);
       e.preventDefault();
       const formData=new FormData();
+      if(postBody){
       formData.append('body',postBody);
+      }
+      if(postImage){
       formData.append('image',postImage);
+      }
       const response= await CreatePostAPI(formData);
       await callBack();
+    setLoading(false);
+    setPostImage(null);
+    setImageURL('');
+    setPostBody('')
     }
     return (
     <>
-      <div className='bg-white rounded-md shadow-md h-auto py-3 px-3 my-5'>
+      <div className='bg-white rounded-md shadow-md h-auto py-3 px-3 my-5 relative'>
         <form action="" onSubmit={createPostFunc}>
             <textarea name="" id="" className='border w-full p-4 rounded-md resize-none' rows={4} value={postBody} onChange={(e)=>{setPostBody(e.target.value)}}></textarea>
             {imageURL!=''&&<div className='relative'>
@@ -40,6 +50,9 @@ export default function CreatePost({callBack}) {
             <Button type='submit' className='block' color='primary'>Post</Button>
             </div>
         </form>
+        {loading && <div className='absolute inset-0 w-full rounded-md bg-gray-300/50 flex justify-center items-center'>
+        <Spinner/>
+        </div>}
       </div>
     </>
   )

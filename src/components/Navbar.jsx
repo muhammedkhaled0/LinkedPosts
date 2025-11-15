@@ -4,12 +4,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthContext';
 
 export default function Navbar() {
-  const {isloggedIn,setIsloggedIn}=useContext(AuthContext)
+  const {isloggedIn,setIsloggedIn,setUserData}=useContext(AuthContext)
   const navigate =useNavigate()
   function logOut(){
     localStorage.removeItem('token',null);
     setIsloggedIn(null);
     navigate('/login')
+    setUserData(null);
   }
   return (
     <>
