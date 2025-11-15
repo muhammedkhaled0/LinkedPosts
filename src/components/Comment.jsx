@@ -25,7 +25,7 @@ useEffect(() => {
 }, [comment.content]);
   return (
          <>
-         <div key={index} className="w-full px-3 py-2 border-b border-gray-200 last:border-none" >
+         <div key={index} className="w-full px-3 py-2 border-b border-gray-200 last:border-none dark:bg-zinc-900 dark:text-white" >
          <div  className=" flex justify-between" >
            <div className="flex">
              <img
@@ -44,7 +44,7 @@ useEffect(() => {
                    .join()
                    .replace('T', ' ') || ''}
                </p>
-               <p className="text-sm text-gray-800">{comment.content}</p>
+               <p className="text-sm">{comment.content}</p>
              </div>
            </div>
            {comment.commentCreator._id===userData._id&&userData._id===post.user._id?<div>
@@ -55,7 +55,7 @@ useEffect(() => {
          
              {isUpdating && (
                <form onSubmit={(e) => { e.preventDefault();handleUpdatigComments();}} className="w-full mt-3">
-                 <div className="border border-gray-200 rounded-xl p-3 bg-gray-50">
+                 <div className="rounded-xl p-3 bg-gray-50 dark:bg-black/70 dark:text-white shadow">
                    <div className="flex gap-3 items-center">
                      <Input
                        fullWidth

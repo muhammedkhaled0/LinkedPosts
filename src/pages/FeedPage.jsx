@@ -14,7 +14,7 @@ const {data:postat,isFetching,isLoading,isError,refetch/* دي شايلة الم
 })
 
   return (
-    <>
+    <div className='dark:text-white'>
     <CreatePost callBack={refetch}/>
     {isLoading?  <div className='flex flex-col gap-y-7'>
 <LoadingScreen/>
@@ -24,6 +24,6 @@ const {data:postat,isFetching,isLoading,isError,refetch/* دي شايلة الم
       {postat?.map((post)=>{return <PostCard key={post.id} post={post} numberOfComments={1}/>})}
     </div>}
 
-    </>
+    </div>
   )
 }

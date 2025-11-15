@@ -17,8 +17,8 @@ export default function PostCard({post,numberOfComments,getUpdatedComments}) {
     }
   return (
     <>
- <div>
-  <div className="bg-white w-full rounded-md shadow-md h-auto py-3 px-3 my-5">
+ <div className='dark:bg-black dark:text-white'>
+  <div className="bg-white dark:bg-black w-full rounded-md shadow-md h-auto py-3 px-3 my-5">
     <div className="w-full h-16 flex items-center justify-between ">
       <div className="flex">
         <img className=" rounded-full w-10 h-10 mr-3" src={photo} alt={name}/>
@@ -27,11 +27,6 @@ export default function PostCard({post,numberOfComments,getUpdatedComments}) {
           <p className="text-xs text-gray-500">{createdAt.split('.',1).join().replace('T',' ')}</p>
         </div>
       </div>
-      {userData._id===post.user._id
-      &&
-      <DropDownAction/>
-      }
-
     </div>
     {body&&<p>{body}</p>}
     {image&& <img src={image} alt={body} className='w-full h-3/4 object-cover'/>}
@@ -49,7 +44,7 @@ export default function PostCard({post,numberOfComments,getUpdatedComments}) {
     </div>
     <SubmitComment postId={id} setUpdatedComments={setUpdatedComments}/>
    {updatedComments.length > 0 && (
-     <div className="bg-gray-100 w-full py-2 rounded-md mt-2">
+     <div className="bg-gray-100 w-full py-2 rounded-md mt-2 dark:bg-zinc-900">
        {updatedComments.slice(0, numberOfComments).map((comment, index) => (
         <Comment post={post} comment={comment} index={index} key={index} getUpdatedComments={getUpdatedComments}/>
        ))}

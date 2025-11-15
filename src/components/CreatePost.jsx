@@ -30,12 +30,12 @@ export default function CreatePost({callBack}) {
     }
     return (
     <>
-      <div className='bg-white rounded-md shadow-md h-auto py-3 px-3 my-5 relative'>
+      <div className='bg-white rounded-md shadow-md h-auto py-3 px-3 my-5 relative dark:bg-black'>
         <form action="" onSubmit={createPostFunc}>
-            <textarea name="" id="" className='border w-full p-4 rounded-md resize-none' rows={4} value={postBody} onChange={(e)=>{setPostBody(e.target.value)}}></textarea>
+            <textarea name="" id="" className='border w-full p-4 rounded-md resize-none' rows={4} value={postBody} onChange={(e)=>{setPostBody(e.target.value)}} placeholder='create your post'></textarea>
             {imageURL!=''&&<div className='relative'>
             <img src={imageURL} className='w-full'/>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10 absolute top-2 end-2 cursor-pointer" onClick={()=>{setImageURL('')}}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-10 absolute top-2 end-2 cursor-pointer dark:text-white" onClick={()=>{setImageURL('')}}>
   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
 </svg>
             </div>}

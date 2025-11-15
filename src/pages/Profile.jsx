@@ -28,7 +28,7 @@ useEffect(()=>{
   return (
     <>
     <label>
-          <div className="w-40 h-40 mb-6 left-1/2 relative -translate-x-1/2 mt-6 ">
+          <div className="w-40 h-40 mb-6 left-1/2 relative -translate-x-1/2 mt-6">
     <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center text-gray-500">{displayUserPhoto?<img src={displayUserPhoto} className='w-40 h-40 rounded-full'/>:''} </div>
         <form className='flex justify-between' action="" onSubmit={async(e)=>{
       e.preventDefault()
